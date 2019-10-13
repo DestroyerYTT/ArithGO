@@ -37,6 +37,7 @@ public class Puzzle extends AppCompatActivity implements View.OnClickListener {
         operator = findViewById(R.id.operator_tv);
         input = findViewById(R.id.input_et);
         points = findViewById(R.id.question_points_tv);
+        points.setText("You have " + CRUDPoints.retrieve("1").getPoints() +" points");
 
         input.addTextChangedListener(new TextWatcher() {
             @Override
@@ -51,7 +52,7 @@ public class Puzzle extends AppCompatActivity implements View.OnClickListener {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                    System.out.println(editable.toString());
+                    verifyAnwer(editable.toString());
             }
         });
 
@@ -76,7 +77,8 @@ public class Puzzle extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    public void verifyAnwer(int anwer){
+    public void verifyAnwer(String anwer){
+        int anwerInt = Integer.parseInt(anwer);
         int correctAnwer = 0;
         int n1 = Integer.parseInt(num1.getText().toString());
         int n2 = Integer.parseInt(num2.getText().toString());
@@ -92,14 +94,14 @@ public class Puzzle extends AppCompatActivity implements View.OnClickListener {
         }
         int temp = CRUDPoints.retrieve("1").getPoints().intValue();
 
-        if(correctAnwer == anwer){
+        if(correctAnwer == anwerInt){
             temp++;
             CRUDPoints.update(new Point("1", "points", temp));
         }else{
             temp--;
             CRUDPoints.update(new Point("1", "points", temp));
         }
-        
+        points.setText("You have " + CRUDPoints.retrieve("1").getPoints() +" points");
 
     }
 
