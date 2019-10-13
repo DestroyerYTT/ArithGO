@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:id="@+id/tienda_icesi_ll"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Tienda Icesi"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="30sp"></TextView>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/logo_icesi"></ImageView>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tienda_icesi_ll"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:text="Select the item you want to buy:"
+        android:textColor="#000"
+        android:textSize="20sp"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tienda_icesi_points_tv"
+        android:layout_marginBottom="20dp"
+        android:text="You have 0 points"
+        android:textColor="#000"
+        android:textAlignment="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_above="@+id/return_btn"
+        android:textSize="20sp"></TextView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/return_btn"
+        android:text="Return to map"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="100dp">
+    </Button>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right|center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="Pen 20 points"
+                android:textColor="#000"
+                android:textSize="20sp"></TextView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/pen">
+            </ImageView>
+
+            <Button
+                android:id="@+id/pen_btn"
+                android:text="$"
+                android:textSize="20sp"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginRight="10dp"
+                android:text="Book 30 points">
+            </TextView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/book">
+            </ImageView>
+
+            <Button
+                android:id="@+id/book_btn"
+                android:text="$"
+                android:textSize="20sp"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginRight="10dp"
+                android:text="Notebook 40 points">
+            </TextView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/notebook">
+            </ImageView>
+
+            <Button
+                android:id="@+id/notebook_btn"
+                android:text="$"
+                android:textSize="20sp"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginRight="10dp"
+                android:text="T-Shirt 80 points">
+            </TextView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/tshirt">
+            </ImageView>
+
+            <Button
+                android:id="@+id/t_shirt_btn"
+                android:text="$"
+                android:textSize="20sp"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            </Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:layout_marginRight="10dp"
+                android:text="Coat 100 points">
+            </TextView>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/coat">
+            </ImageView>
+
+            <Button
+                android:id="@+id/coat_btn"
+                android:text="$"
+                android:textSize="20sp"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+            </Button>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
