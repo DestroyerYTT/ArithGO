@@ -2,10 +2,13 @@ package co.edu.icesi.arithgo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,20 +42,14 @@ public class Puzzle extends AppCompatActivity implements View.OnClickListener {
         points = findViewById(R.id.question_points_tv);
         points.setText("You have " + CRUDPoints.retrieve("1").getPoints() +" points");
 
-        input.addTextChangedListener(new TextWatcher() {
+        input.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                    verifyAnwer(editable.toString());
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i == EditorInfo.IME_ACTION_DONE){
+                    verifyAnwer(input.getText().toString());
+                    generatePuzzle();
+                }
+                return false;
             }
         });
 
@@ -78,30 +75,33 @@ public class Puzzle extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void verifyAnwer(String anwer){
-        int anwerInt = Integer.parseInt(anwer);
-        int correctAnwer = 0;
-        int n1 = Integer.parseInt(num1.getText().toString());
-        int n2 = Integer.parseInt(num2.getText().toString());
+        if(!num1.getText().equals("N1") && !anwer.equals("")){
+            int anwerInt = Integer.parseInt(anwer);
+            int correctAnwer = 0;
+            int n1 = Integer.parseInt(num1.getText().toString());
+            int n2 = Integer.parseInt(num2.getText().toString());
 
-        if(operator.equals("+")){
-            correctAnwer = n1 + n2;
-        }else if(operator.equals("*")){
-            correctAnwer = n1 * n2;
-        }else if(operator.equals("-")){
-            correctAnwer = n1 - n2;
-        }else if(operator.equals("/")){
-            correctAnwer = n1 / n2;
-        }
-        int temp = CRUDPoints.retrieve("1").getPoints().intValue();
+            if(operator.getText().equals("+")){
+                correctAnwer = n1 + n2;
+            }else if(operator.getText().equals("*")){
+                correctAnwer = n1 * n2;
+            }else if(operator.getText().equals("-")){
+                correctAnwer = n1 - n2;
+            }else if(operator.getText().equals("/")){
+                correctAnwer = n1 / n2;
+            }
+            int temp = CRUDPoints.retrieve("1").getPoints().intValue();
 
-        if(correctAnwer == anwerInt){
-            temp++;
-            CRUDPoints.update(new Point("1", "points", temp));
-        }else{
-            temp--;
-            CRUDPoints.update(new Point("1", "points", temp));
+            if(correctAnwer == anwerInt){
+                temp++;
+                CRUDPoints.update(new Point("1", "points", temp));
+            }else{
+                temp--;
+                CRUDPoints.update(new Point("1", "points", temp));
+            }
+            points.setText("You have " + CRUDPoints.retrieve("1").getPoints() +" points");
         }
-        points.setText("You have " + CRUDPoints.retrieve("1").getPoints() +" points");
+
 
     }
 
